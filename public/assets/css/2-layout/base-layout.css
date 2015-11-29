@@ -13,19 +13,34 @@ body {
 
 h1 {
   font-size: 3rem;
-  text-align: left; }
+  text-align: center;
+  display: block;
+  background-color: #def; }
 
 h2 {
   font-size: 2rem;
-  text-align: left;
   font-weight: 300; }
 
 h3 {
-  font-size: 1.5rem;
-  text-align: left; }
+  font-size: 1.3rem; }
 
 a, a:visited {
   color: #2699ee; }
 
 a:hover {
   color: #ee9933; }
+
+.instructions {
+  display: block;
+  width: 70%;
+  margin: 10px auto;
+  background-color: #eee;
+  text-align: center; }
+
+.timer {
+  display: block;
+  width: 40%;
+  margin: 10px auto;
+  background-color: #eee;
+  text-align: center;
+  font-size: 3rem; }

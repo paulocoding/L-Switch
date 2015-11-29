@@ -1,7 +1,7 @@
 {
   "name": "static-page-template-with-gulp",
   "version": "0.0.1",
-  "description": "A template for static page work",
+  "description": "A simple game about switching",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

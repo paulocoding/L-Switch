@@ -1,0 +1,47 @@
+ .game {
+	 display: block;
+	 width: 80%;
+	 margin: 0 auto;
+	 background-color: #e0e0e0;
+	 
+	 li{
+		 cursor: pointer;
+		 display: block;
+		 width: 150px;
+		 font-size: 2.4rem;
+		 margin: 10px;
+		 padding: 10px;
+		 background-color: #aaa;		 
+	 }
+	 
+	.rb {
+		background-color: #f15334;
+	}
+	.bb {
+		background-color: #2388cd;
+	}
+ }
+ 
+ .game-left {
+	 display: block;
+	 float: left;
+	 width: 50%;
+	 margin: 0;
+	 text-align: right;
+	 background-color: #fdd;
+	 li{
+		 margin: 10px 20px 10px auto;
+	 }
+ }
+ .game-right {
+	 display: block;
+	 float: left;
+	 width: 50%;
+	 margin: 0;
+	 text-align: left;
+	 background-color: #def;
+	 li{
+		 margin: 10px auto 10px 20px;
+	 }
+ }
+ 
