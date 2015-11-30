@@ -19,9 +19,31 @@ var main = function() {
 	}
 	var initTime = getTimeMs();
 	
-	
-	// console.log($($('.game-left').children()[2]).addClass('test'));
-	
+	//initialize blocks function
+	var initBlocks= function(n){
+		var blockA = '<li class="block rb"><i class="fa fa-exchange"></i></li>';
+		var blockB = '<li class="block"><i class="fa fa-exchange"></i></li>';
+		
+		var listL = $('.game-left');
+		var listR = $('.game-right');
+		//removing all children nodes
+		listL.empty();
+		listR.empty();
+		for(i=0;i<n;i++){
+			// need to "force" some ramdomness
+			if(Math.random() < 0.5){
+				listL.append($(blockA));
+				listR.append($(blockB));
+			} else {
+				listL.append($(blockB));
+				listR.append($(blockA));				
+			}
+		}
+		
+	};
+	// first level call
+	initBlocks(5);
+		
 	// switching function	
 	$('.block').click(function () {
 		$(this).toggleClass('rb');
@@ -48,7 +70,6 @@ var main = function() {
 			
 		}		
 	});
-	
 	// Game loop: 
 	var gameLoop = setInterval(function(){
 		// game update logic
