@@ -2,9 +2,9 @@
 var getTimeMs = function() {
 	return (new Date()).getTime();
 }
-// returns random number btween 1 and n
+// returns random number btween 0 and n
 var randomNum = function(n){
-	return Math.floor(Math.random()*n)+1;
+	return Math.floor(Math.random()*(n+1));
 };
 var main = function() {
 	// get timer element
@@ -26,16 +26,18 @@ var main = function() {
 	
 	//initialize blocks function
 	var initBlocks= function(n){
-		var blockA = '<li class="block rb"><i class="fa fa-exchange"></i></li>';
-		var blockB = '<li class="block"><i class="fa fa-exchange"></i></li>';
+		var blockA = '<li class="block rb"><i class="fa fa-chevron-right"></i></li>';
+		var blockB = '<li class="block"><i class="fa fa-chevron-left"></i></li>';
+		var blockSA = '<li class="block rb"><i class="fa fa-chevron-left"></i></li>';
+		var blockSB = '<li class="block"><i class="fa fa-chevron-right"></i></li>';
 		
 		var listL = $('.game-left');
 		var listR = $('.game-right');
 		//removing all children nodes
 		listL.empty();
 		listR.empty();
-		// number of blocks to switch (3 block variation, minimum blocks switched round((n/2)-1))
-		var blocksToSwitch = Math.round(Math.random()*3+(n/2)-1);
+		// number of blocks to switch (3 block variation, minimum blocks switched round(n/2))
+		var blocksToSwitch = (n/2) + randomNum(2);
 		var blockSwitch = [];
 		
 		for(var i=0;i<n;i++){
@@ -46,7 +48,7 @@ var main = function() {
 		if(n >= blocksToSwitch){
 			// distributing random blocks
 			for(var i=0, ri=0;i<blocksToSwitch;i++) {
-				ri = randomNum(n)-1;
+				ri = randomNum(n-1);
 				if(!blockSwitch[ri]){
 					blockSwitch[ri] = true;
 				}
@@ -59,8 +61,8 @@ var main = function() {
 		for(var i=0;i<n;i++){
 			
 			if(blockSwitch[i]){
-				listL.append($(blockB));
-				listR.append($(blockA));
+				listL.append($(blockSB));
+				listR.append($(blockSA));
 			} else {
 				listL.append($(blockA));
 				listR.append($(blockB));			
@@ -69,7 +71,7 @@ var main = function() {
 		
 	};
 	// first level call
-	initBlocks(6);
+	initBlocks(8);
 		
 	// switching function	
 	$('.block').click(function () {

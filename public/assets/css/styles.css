@@ -2063,6 +2063,8 @@ a:hover {
     width: 100px;
     font-size: 2rem;
     margin: 10px;
+    -webkit-border-radius: 8px;
+            border-radius: 8px;
     padding: 10px;
     background-color: #2388cd; }
   .game .rb {
@@ -2074,7 +2076,9 @@ a:hover {
   width: 50%;
   margin: 0;
   text-align: right;
-  background-color: #fdd; }
+  background-color: #fdd;
+  -webkit-border-radius: 8px 0 0 8px;
+          border-radius: 8px 0 0 8px; }
   .game-left li {
     margin: 10px 20px 10px auto; }
 
@@ -2084,6 +2088,8 @@ a:hover {
   width: 50%;
   margin: 0;
   text-align: left;
-  background-color: #def; }
+  background-color: #def;
+  -webkit-border-radius: 0 8px 8px 0;
+          border-radius: 0 8px 8px 0; }
   .game-right li {
     margin: 10px auto 10px 20px; }
