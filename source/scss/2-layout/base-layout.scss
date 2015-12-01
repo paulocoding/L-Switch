@@ -13,6 +13,7 @@ h1 {
 	font-size: 3rem;
 	text-align: center;
 	display: block;
+	margin: 0 0 10px 0;
 	background-color: #def;
 }
 
@@ -56,6 +57,11 @@ a:hover {
 	color: #fffd88;	
 }
 
+.lost{
+	background-color: #c20;
+	font-size: 4rem;
+	color: #fffd88;	
+}
 .menu, .retry {
 	 margin: 0 auto 6px;
 	 background-color: #e0e0e0;
@@ -65,15 +71,23 @@ a:hover {
 		 cursor: pointer;
 		 display: block;
 		 margin: 0 auto;
-		color: #fffd88;			 
+		color: #f7f7f7;			 
 		 width: 140px;
 		 font-size: 2rem;
 		 border-radius: 8px;
 		 padding: 10px;
-		 background-color: #c20;
+		 background-color: #2699ee;
 		 &:hover{
 		 	background-color: #fa3;
 			color: #e30;			 
 		 }
 	 }
+}
+// to avoid FOUC
+.retry {
+	display: none;
+}
+.retry a {
+	color: #fffd88;	
+	background-color: #c20;	
 }

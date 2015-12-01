@@ -11,6 +11,7 @@ var main = function() {
 	var timerEl = $('.timer');
 	
 	$('.retry').hide();
+	$('.game').hide();
 	
 	// flag for winning condition
 	var won = false;
@@ -92,6 +93,7 @@ var main = function() {
 	
 		$('.game-right').show();
 		$('.game-left').show();
+		$('.game').show();
 		$('.menu').hide();
 		initTime = getTimeMs();
 		// switching function	
@@ -122,6 +124,7 @@ var main = function() {
 				$('.game-right').hide();
 				$('.game-left').hide();
 				$('.menu').show();	
+				$('.game').hide();
 			}		
 		});
 		
@@ -135,11 +138,13 @@ var main = function() {
 			}
 			else {
 				lost = true;
-				timerEl.text('Lost');
+				timerEl.text('Lost').addClass('lost');
 				$('.game-right').hide();
 				$('.game-left').hide();
-				$('.level').text('final Level: '+level);
+				$('.level').text('Final Level: '+level);
 				$('.retry').show();
+				$('.instructions').hide();
+				$('.game').hide();
 				clearInterval(gameLoop);
 			}
 		}, frameTime);

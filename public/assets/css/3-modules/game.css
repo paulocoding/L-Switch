@@ -1,7 +1,7 @@
 .game {
   display: block;
   width: 80%;
-  margin: 0 auto 10px auto;
+  margin: 10px auto 10px auto;
   background-color: #e0e0e0; }
   .game li {
     cursor: pointer;

@@ -2022,6 +2022,7 @@ h1 {
   font-size: 3rem;
   text-align: center;
   display: block;
+  margin: 0 0 10px 0;
   background-color: #def; }
 
 h2 {
@@ -2059,6 +2060,11 @@ a:hover {
   font-size: 3rem;
   color: #fffd88; }
 
+.lost {
+  background-color: #c20;
+  font-size: 4rem;
+  color: #fffd88; }
+
 .menu, .retry {
   margin: 0 auto 6px;
   background-color: #e0e0e0;
@@ -2068,21 +2074,28 @@ a:hover {
     cursor: pointer;
     display: block;
     margin: 0 auto;
-    color: #fffd88;
+    color: #f7f7f7;
     width: 140px;
     font-size: 2rem;
     -webkit-border-radius: 8px;
             border-radius: 8px;
     padding: 10px;
-    background-color: #c20; }
+    background-color: #2699ee; }
     .menu h4.btn:hover, .menu a:hover, .retry h4.btn:hover, .retry a:hover {
       background-color: #fa3;
       color: #e30; }
 
+.retry {
+  display: none; }
+
+.retry a {
+  color: #fffd88;
+  background-color: #c20; }
+
 .game {
   display: block;
   width: 80%;
-  margin: 0 auto 10px auto;
+  margin: 10px auto 10px auto;
   background-color: #e0e0e0; }
   .game li {
     cursor: pointer;
