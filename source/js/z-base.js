@@ -13,10 +13,7 @@ var main = function() {
 	gameTime = gameTime * ticksPerSec;
 		
 	var frameTime = 1000/ ticksPerSec;
-	// gets the current time in milliseconds
-	var getTimeMs = function() {
-		return (new Date()).getTime();
-	}
+	
 	var initTime = getTimeMs();
 	
 	//initialize blocks function
@@ -29,20 +26,42 @@ var main = function() {
 		//removing all children nodes
 		listL.empty();
 		listR.empty();
-		for(i=0;i<n;i++){
-			// need to "force" some ramdomness
-			if(Math.random() < 0.5){
-				listL.append($(blockA));
-				listR.append($(blockB));
-			} else {
+		// number of blocks to switch (3 block variation, minimum blocks switched round((n/2)-1))
+		var blocksToSwitch = Math.round(Math.random()*3+(n/2)-1);
+		var blockSwitch = [];
+		
+		for(var i=0;i<n;i++){
+			blockSwitch.push(false);
+		}
+		
+		// sanity check to avoid infinite loop
+		if(n >= blocksToSwitch){
+			// distributing random blocks
+			for(var i=0, ri=0;i<blocksToSwitch;i++) {
+				ri = randomNum(n)-1;
+				if(!blockSwitch[ri]){
+					blockSwitch[ri] = true;
+				}
+				else {
+					i--;
+				}
+			}
+		}
+		// filling out the list
+		for(var i=0;i<n;i++){
+			
+			if(blockSwitch[i]){
 				listL.append($(blockB));
-				listR.append($(blockA));				
+				listR.append($(blockA));
+			} else {
+				listL.append($(blockA));
+				listR.append($(blockB));			
 			}
 		}
 		
 	};
 	// first level call
-	initBlocks(5);
+	initBlocks(6);
 		
 	// switching function	
 	$('.block').click(function () {
