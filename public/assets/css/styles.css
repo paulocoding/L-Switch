@@ -2039,12 +2039,12 @@ a:hover {
 
 .instructions {
   display: block;
-  width: 70%;
-  margin: 10px auto;
+  width: 80%;
+  margin: 20px auto;
   background-color: #eee;
   text-align: center; }
 
-.timer {
+.level {
   display: block;
   width: 40%;
   margin: 10px auto;
@@ -2052,10 +2052,37 @@ a:hover {
   text-align: center;
   font-size: 3rem; }
 
+.timer {
+  margin: 10px auto;
+  background-color: #ee9933;
+  text-align: center;
+  font-size: 3rem;
+  color: #fffd88; }
+
+.menu, .retry {
+  margin: 0 auto 6px;
+  background-color: #e0e0e0;
+  text-align: center;
+  padding: 10px; }
+  .menu h4.btn, .menu a, .retry h4.btn, .retry a {
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    color: #fffd88;
+    width: 140px;
+    font-size: 2rem;
+    -webkit-border-radius: 8px;
+            border-radius: 8px;
+    padding: 10px;
+    background-color: #c20; }
+    .menu h4.btn:hover, .menu a:hover, .retry h4.btn:hover, .retry a:hover {
+      background-color: #fa3;
+      color: #e30; }
+
 .game {
   display: block;
   width: 80%;
-  margin: 0 auto;
+  margin: 0 auto 10px auto;
   background-color: #e0e0e0; }
   .game li {
     cursor: pointer;
@@ -2068,6 +2095,10 @@ a:hover {
     background-color: #2388cd; }
   .game .rb {
     background-color: #f15334; }
+  .game:after {
+    content: "";
+    display: table;
+    clear: both; }
 
 .game-left {
   display: block;

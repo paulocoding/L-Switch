@@ -1,7 +1,7 @@
 .game {
   display: block;
   width: 80%;
-  margin: 0 auto;
+  margin: 0 auto 10px auto;
   background-color: #e0e0e0; }
   .game li {
     cursor: pointer;
@@ -14,6 +14,10 @@
     background-color: #2388cd; }
   .game .rb {
     background-color: #f15334; }
+  .game:after {
+    content: "";
+    display: table;
+    clear: both; }
 
 .game-left {
   display: block;

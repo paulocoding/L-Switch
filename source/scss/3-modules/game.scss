@@ -1,7 +1,7 @@
  .game {
 	 display: block;
 	 width: 80%;
-	 margin: 0 auto;
+	 margin: 0 auto 10px auto;
 	 background-color: #e0e0e0;
 	 
 	 li{
@@ -16,6 +16,12 @@
 	 
 	.rb {
 		background-color: #f15334;		
+	}
+	// clearfix:
+	&:after {
+	content: "";
+	display: table;
+	clear: both;
 	}
  }
  
@@ -38,7 +44,7 @@
 	 margin: 0;
 	 text-align: left;
 	 background-color: #def;
-	 border-radius: 0 8px 8px 0;
+	 border-radius:  0 8px 8px 0;
 	 li{
 		 margin: 6px auto 6px 20px;
 	 }

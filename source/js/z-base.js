@@ -2,8 +2,11 @@ var main = function() {
 	// get timer element
 	var timerEl = $('.timer');
 	
+	$('.retry').hide();
+	
 	// flag for winning condition
 	var won = false;
+	var lost = false;
 	// target number of updates per second:
 	var ticksPerSec = 10;
 	// set time per game in seconds
@@ -14,7 +17,8 @@ var main = function() {
 		
 	var frameTime = 1000/ ticksPerSec;
 	
-	var initTime = getTimeMs();
+	var initTime = 0;
+	var level = 1;
 	
 	//initialize blocks function
 	var initBlocks= function(n){
@@ -62,51 +66,78 @@ var main = function() {
 		}
 		
 	};
-	// first level call
-	initBlocks(8);
-		
-	// switching function	
-	$('.block').click(function () {
-		$(this).toggleClass('rb');
-		// finding current element order nr
-		var o = $(this).prevAll().length;
-		if($(this).parent().hasClass('game-left')){
-			$($('.game-right').children()[o]).toggleClass('rb');
+	
+	$('h4.btn').click(function(){
+		// creating blocks (max 8) 
+		if (level < 5) {
+			initBlocks(4+level);
+		}else {
+			initBlocks(8);
 		}
-		else {
-			$($('.game-left').children()[o]).toggleClass('rb');
-		}
-		
-		// checking if the win condition is met
-		var bList = $('.game-right').children();
-		won = true;
-		for (var i=0, l=bList.length;i<l;i++) {
-			if($(bList[i]).hasClass('rb')){
-				won = false;
-			};
-		}
-		if(won){
-			clearInterval(gameLoop);
-			timerEl.text('WON!!');
+		// set time per game in seconds
+		gameTime = 4-level/4; 
+		timer = Math.floor(gameTime * ticksPerSec);
+		// converting game time from seconds to number of tics
+		gameTime =  Math.floor(gameTime * ticksPerSec);
+		$('h1').text('Level: '+level);
+		$('.level').text('Level: '+level);
+	
+		$('.game-right').show();
+		$('.game-left').show();
+		$('.menu').hide();
+		initTime = getTimeMs();
+		// switching function	
+		$('.block').click(function () {
+			$(this).toggleClass('rb');
+			// finding current element order nr
+			var o = $(this).prevAll().length;
+			if($(this).parent().hasClass('game-left')){
+				$($('.game-right').children()[o]).toggleClass('rb');
+			}
+			else {
+				$($('.game-left').children()[o]).toggleClass('rb');
+			}
 			
-		}		
-	});
-	// Game loop: 
-	var gameLoop = setInterval(function(){
-		// game update logic
-		timer = gameTime - Math.floor((getTimeMs()-initTime)/frameTime);
-		// lose condition
-		if (timer >= 0){ 
-			timerEl.text(timer);
-		}
-		else {
-			timerEl.text('Lost');
-			clearInterval(gameLoop);
-		}
-	}, frameTime);
-	$('.bb').click(function(){
+			// checking if the win condition is met
+			var bList = $('.game-right').children();
+			won = true;
+			for (var i=0, l=bList.length;i<l;i++) {
+				if($(bList[i]).hasClass('rb')){
+					won = false;
+				};
+			}
+			if(won&&!lost){
+				clearInterval(gameLoop);
+				level++;			
+				timerEl.text('WON!');
+				$('.level').text('next Level: '+level);
+				$('.game-right').hide();
+				$('.game-left').hide();
+				$('.menu').show();	
+			}		
+		});
 		
+		// Game loop: 
+		var gameLoop = setInterval(function(){
+			// game update logic
+			timer = gameTime - Math.floor((getTimeMs()-initTime)/frameTime);
+			// lose condition
+			if (timer >= 0){ 
+				timerEl.text(timer);
+			}
+			else {
+				lost = true;
+				timerEl.text('Lost');
+				$('.game-right').hide();
+				$('.game-left').hide();
+				$('.level').text('final Level: '+level);
+				$('.retry').show();
+				clearInterval(gameLoop);
+			}
+		}, frameTime);
+	
 	});
+	
 };
 
 $(document).ready(main);
