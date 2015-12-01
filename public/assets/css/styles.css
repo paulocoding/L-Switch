@@ -2062,7 +2062,6 @@ a:hover {
     display: block;
     width: 100px;
     font-size: 2rem;
-    margin: 10px;
     -webkit-border-radius: 8px;
             border-radius: 8px;
     padding: 10px;
@@ -2080,7 +2079,7 @@ a:hover {
   -webkit-border-radius: 8px 0 0 8px;
           border-radius: 8px 0 0 8px; }
   .game-left li {
-    margin: 10px 20px 10px auto; }
+    margin: 6px 20px 6px auto; }
 
 .game-right {
   display: block;
@@ -2092,4 +2091,4 @@ a:hover {
   -webkit-border-radius: 0 8px 8px 0;
           border-radius: 0 8px 8px 0; }
   .game-right li {
-    margin: 10px auto 10px 20px; }
+    margin: 6px auto 6px 20px; }
